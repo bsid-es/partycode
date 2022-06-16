@@ -32,7 +32,7 @@ func TestGenerate(t *testing.T) {
 
 func BenchmarkGenerate(b *testing.B) {
 	r := &riggedRand{i: 0}
-	gen := partycode.Default(r)
+	gen := partycode.New(r, []byte("1234"), 4)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		gen.Generate()
